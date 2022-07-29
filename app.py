@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from sqlalchemy import false, true
 from scripts.twolink import twolink
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 app.config['ENV'] = 'development'
 app.config['DEBUG'] = True
@@ -22,7 +22,10 @@ def index():
             return render_template('main.html')
     if request.method == 'POST':
         exampleInputEmail2 = request.form.get('exampleInputEmail2')
-        print(request.form)
+        data = request.args
+        print(data)
+        print(request.form.get('exampleInputEmail2'))
+        twolink(request.form.get('exampleInputEmail2'))
         return render_template('main.html', test=exampleInputEmail2)
 
 
