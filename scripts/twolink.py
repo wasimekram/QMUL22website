@@ -8,11 +8,11 @@ def twolink(args):
     results_dir = os.path.abspath(os.path.join(script_dir, os.pardir))
     results_dir = os.path.join(results_dir + os.sep + "static" + os.sep + "images" + os.sep + "results" + os.sep)
     print(results_dir)
-    l1 = 0.8
-    l2 = 0.5
+    l1 = float(args['armfirst'])
+    l2 = float(args['armsecond'])
 
-    n_theta = int(args) # No of divisions
-    theta_start = 0 # Starting angle
+    n_theta = int(args['divisions']) # No of divisions
+    theta_start = int(args['anglestart']) # Starting angle
     theta_end = math.pi/2 # Ending angle
     theta1 = []
     theta2 = []
@@ -55,7 +55,6 @@ def twolink(args):
         new_frame = Image.open(i)
         frames.append(new_frame)
     print('gif created')
-    print(imgs)
     # Save into a GIF file that loops forever
     gifpath = results_dir + '/png_to_gif.gif'
     frames[0].save(gifpath, format='GIF',
@@ -64,4 +63,4 @@ def twolink(args):
                 duration=300, loop=0)
 
 
-twolink(2)
+#twolink(2)

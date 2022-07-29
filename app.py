@@ -11,22 +11,18 @@ app.config['TESTING'] = True
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        print(request.args)
-        celsius = request.args.get("exampleInputEmail2", "")
-        if celsius:
-            print(celsius)
-            fahrenheit = twolink(celsius)
-            return render_template('main.html')
-
-        else:
-            return render_template('main.html')
+        return render_template('main.html')
     if request.method == 'POST':
-        exampleInputEmail2 = request.form.get('exampleInputEmail2')
-        data = request.args
+        armfirst = request.form.get('armfirst')
+        data = request.form.to_dict()
         print(data)
-        print(request.form.get('exampleInputEmail2'))
-        twolink(request.form.get('exampleInputEmail2'))
-        return render_template('main.html', test=exampleInputEmail2)
+        try:
+            twolink(data)
+            return render_template('main.html', test=data)
+        except Exception as e: 
+            print(e)
+            return render_template('main.html', test=data, e=e)
+       
 
 
 

@@ -4,14 +4,14 @@
 <body>
   {% block body %} {% include "navigation.html" %}
   <div class="container">
-    <p>{{ test }}</p>
-    {%include "form.html" %}
+    {% include "form.html" %}
+    {% include "output.html" %}
+    {% include "carousel.html" %}
     {%include "getstarted.html" %}
 
 
   </div>
   {% include "features.html" %}
-  {% include "carousel.html" %}
   {% include "jumbotron.html" %}
 
 
