@@ -29,12 +29,9 @@ def index():
             return render_template('main.html', test=data, imgs=imgs)
         except Exception as e: 
             print(e)
-            twolink({armfirst: 0.5, armsecond: 1.0, divisions: 2, anglestart=0})
+            twolink({armfirst: 0.5, armsecond: 1.0, divisions: 2, anglestart:0})
             return render_template('main.html', test=data, imgs=imgs, e=e)
        
-
-
-
 
 
 
