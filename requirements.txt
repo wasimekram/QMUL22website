@@ -3,3 +3,7 @@ Flask-RESTful
 gunicorn
 Jinja2
 matplotlib
+plotly
+numpy
+pandas
+json
