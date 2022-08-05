@@ -1,44 +1,47 @@
-<form method="post">
-    <div class="row g-3">
-        <div class="col">
-            <label for="armfirst">Length of first arm</label>
-            <input type="text" class="form-control" id="armfirst" name="armfirst" aria-describedby="armfirst"
-                placeholder="Length of first arm">
-            <small id="armfirst" class="form-text text-muted">values (0.1 - 2)</small>
+<div class="container border border-info" style="padding:20px">
+
+    <form method="post">
+        <div class="row g-3">
+            <div class="col">
+                <label for="armfirst">Length of first arm</label>
+                <input type="text" class="form-control" id="armfirst" name="armfirst" aria-describedby="armfirst"
+                    placeholder="Length of first arm">
+                <small id="armfirst" class="form-text text-muted">values (0.1 - 2)</small>
+            </div>
+            <div class="col">
+                <label for="armsecond">Length of second arm</label>
+                <input type="text" class="form-control" id="armsecond" name="armsecond" aria-describedby="armsecond"
+                    placeholder="Length of second arm">
+                <small id="armsecond" class="form-text text-muted">values (0.1 - 2)</small>
+            </div>
         </div>
-        <div class="col">
-            <label for="armsecond">Length of second arm</label>
-            <input type="text" class="form-control" id="armsecond" name="armsecond" aria-describedby="armsecond"
-                placeholder="Length of second arm">
-            <small id="armsecond" class="form-text text-muted">values (0.1 - 2)</small>
+        <div class="row g-3">
+            <div class="col">
+                <label for="anglestart">Starting angle</label>
+                <input type="text" class="form-control" id="anglestart" name="anglestart" aria-describedby="anglestart"
+                    placeholder="Starting angle">
+                <small id="anglestart" class="form-text text-muted">default = 0</small>
+            </div>
+            <div class="col">
+                <label for="angleend">Ending angle</label>
+                <input type="text" class="form-control" id="angleend" name="angleend" aria-describedby="angleend"
+                    placeholder="Ending angle">
+                <small id="angleend" class="form-text text-muted">Ending angle.</small>
+            </div>
         </div>
-    </div>
-    <div class="row g-3">
-        <div class="col">
-            <label for="anglestart">Starting angle</label>
-            <input type="text" class="form-control" id="anglestart" name="anglestart" aria-describedby="anglestart"
-                placeholder="Starting angle">
-            <small id="anglestart" class="form-text text-muted">default = 0</small>
+        <div class="row g-3">
+            <div class=" col">
+                <label for="divisions">No of divisions</label>
+                <input type="text" class="form-control" id="divisions" name="divisions" aria-describedby="divisions"
+                    placeholder="No of divisions">
+                <small id="divisions" class="form-text text-muted">values(0-10)</small>
+            </div>
         </div>
-        <div class="col">
-            <label for="angleend">Ending angle</label>
-            <input type="text" class="form-control" id="angleend" name="angleend" aria-describedby="angleend"
-                placeholder="Ending angle">
-            <small id="angleend" class="form-text text-muted">Ending angle.</small>
+
+        <div class="form-check mb-2">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="exampleInputEmail3">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
-    </div>
-    <div class="row g-3">
-        <div class=" col">
-            <label for="divisions">No of divisions</label>
-            <input type="text" class="form-control" id="divisions" name="divisions" aria-describedby="divisions"
-                placeholder="No of divisions">
-            <small id="divisions" class="form-text text-muted">values(0-10)</small>
-        </div>
-    </div>
-    
-    <div class="form-check mb-2">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="exampleInputEmail3">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import os 
 from PIL import Image
 import glob
+import plotly.express as px
+
 def twolink(args):
     script_dir = os.path.dirname(__file__)
     results_dir = os.path.abspath(os.path.join(script_dir, os.pardir))
@@ -13,10 +15,10 @@ def twolink(args):
 
     n_theta = int(args['divisions']) # No of divisions
     theta_start = int(args['anglestart']) # Starting angle
-    theta_end = math.pi/2 # Ending angle
+    theta_end = math.pi/4 # Ending angle
     theta1 = []
     theta2 = []
-
+    imgsarr = []
     for i in range(0,n_theta):
         theta1.append(theta_start+ (theta_end-theta_start)*i/(n_theta-1)) # Angles of link 1
         theta2.append(theta_start+ (theta_end-theta_start)*i/(n_theta-1)) # Angles of link 2
@@ -24,7 +26,7 @@ def twolink(args):
         # Base posotion 
         x0 = 0 # Base position
         y0 = 0 # Base position
-        ct = 1 # Counter
+        ct = i # Counter
 
         # Link 1 end point
         for t1 in theta1:
@@ -36,7 +38,7 @@ def twolink(args):
                 x2 = x1+l2*math.cos(t2) # End of link 2
                 y2 = y1+l2*math.sin(t2) # End of link 2
 
-                filename = str(ct) + '.png'
+                filename = str(i) + '_' + str(ct) + '.png'
                 ct = ct+1
                 plt.figure()
                 plt.plot([x0,x1],[y0,y1])
@@ -44,14 +46,19 @@ def twolink(args):
                 plt.xlim([-1,2])
                 plt.ylim([-1,2])
                 dir = os.path.join(results_dir+filename)
+                imgsarr.append(dir)
                 print(dir)
                 plt.savefig(dir)
+                print('ct is' + str(ct))
+                #fig = px.plot([x0,x1],[y0,y1])
+                #fig = px.plot([x1,x2],[y1,y2])
+                #fig.show()
     
  
     # Create the frames
     frames = []
     imgs = glob.glob(results_dir + "/*.png")
-    for i in imgs:
+    for i in imgsarr:
         new_frame = Image.open(i)
         frames.append(new_frame)
     print('gif created')
@@ -63,4 +70,5 @@ def twolink(args):
                 duration=300, loop=0)
 
 
-#twolink(2)
+
+#twolink({'armfirst': 0.5, 'armsecond': 1.0, 'divisions': 2, 'anglestart':0})
