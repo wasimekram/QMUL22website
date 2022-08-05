@@ -1,29 +1,29 @@
 <html class="no-js" lang="en">
-{% include "header.html" %}
+{% include "core/header.html" %}
 
 <body>
-  {% block body %} {% include "navigation.html" %}
+  {% block body %} {% include "core/navigation.html" %}
   <div class="container">
     {% include "form2.html" %}
     {% include "plotly.html" %}
     {% include "form.html" %}
     {% include "output.html" %}
     {% include "carousel.html" %}
-    {%include "getstarted.html" %}
+    {%include "core/getstarted.html" %}
 
 
   </div>
-  {% include "features.html" %}
-  {% include "jumbotron.html" %}
+  {% include "core/features.html" %}
+  {% include "core/jumbotron.html" %}
 
 
-  {% include "darkhero.html" %}
+  {% include "core/darkhero.html" %}
   {% endblock %}
   
 </body>
 
 
-{% include "footer.html" %}
+{% include "core/footer.html" %}
 
 
 </html>

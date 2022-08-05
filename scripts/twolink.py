@@ -38,7 +38,7 @@ def twolink(args):
                 x2 = x1+l2*math.cos(t2) # End of link 2
                 y2 = y1+l2*math.sin(t2) # End of link 2
 
-                filename = str(i) + '_' + str(ct) + '.png'
+                filename = str(ct) + '.png'
                 ct = ct+1
                 plt.figure()
                 plt.plot([x0,x1],[y0,y1])
