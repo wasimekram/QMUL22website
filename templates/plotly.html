@@ -1,12 +1,47 @@
 <br>
 <h1>Here's the plot for the graph</h1>
-  <div id='chart' class='chart'”></div>
-  <h1>Here's the plot for the graph</h1>
-  <div id='chart1' class='chart1'”></div>
+<div id="graph"></div>
+<!-- <div id='chart' class='chart' ”></div>
+<h1>Here's the plot for the graph</h1>
+<div id='chart1' class='chart1' ”></div> -->
+
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script type='text/javascript'>
   var graphs = {{ graphJSON | safe }};
-  Plotly.plot('chart',graphs,{});
+  Plotly.plot('chart', graphs, {});
   var graphs1 = {{ graphJSON1 | safe }};
-  Plotly.plot('chart1',graphs1,{});
+  Plotly.plot('chart1', graphs1, {});
+</script>
+<script>
+  var d3 = Plotly.d3;
+  var gd = document.getElementById('graph');
+  var xinput = document.getElementById('xinput');
+  var yinput = document.getElementById('yinput');
+
+
+  Plotly.plot('graph', [{
+    y: [1, 1, 2]
+  }])
+    .then(attach);
+
+  function attach() {
+    var xaxis = gd._fullLayout.xaxis;
+    var yaxis = gd._fullLayout.yaxis;
+    var l = gd._fullLayout.margin.l;
+    var t = gd._fullLayout.margin.t;
+
+    gd.addEventListener('mousemove', function (evt) {
+      var xInDataCoord = xaxis.p2c(evt.x - l);
+      var yInDataCoord = yaxis.p2c(evt.y - t);
+
+      Plotly.relayout(gd, 'title', ['x: ' + xInDataCoord, 'y : ' + yInDataCoord].join('<br>'));
+    });
+    gd.addEventListener('click', function (evt) {
+      var xInDataCoord = xaxis.p2c(evt.x - l);
+      var yInDataCoord = yaxis.p2c(evt.y - t);
+      xinput.value = xInDataCoord
+      yinput.value = yInDataCoord
+
+    });
+  }
 </script>

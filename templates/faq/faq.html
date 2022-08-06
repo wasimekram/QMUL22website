@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+{% include "core/header.html" %}
+
+<body>
+  {% block body %} 
+  {% include "core/navigation.html" %}
+  <div class="container">
+    {% include "faq/accordion.html" %}
+
+  </div>
+  {% include "core/darkhero.html" %}
+  {% endblock %}
+  
+</body>
+
+
+{% include "core/footer.html" %}
+
+
+</html>

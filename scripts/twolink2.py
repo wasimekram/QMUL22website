@@ -32,30 +32,28 @@ def twolink(args):
         ct = i # Counter
 
     # Link 1 end point
-    for t1 in theta1:
+    for t1, t2 in zip(theta1, theta2):
     
         x1 = l1*math.cos(t1) # End of link 1
-        y1 = l1*math.sin(t1) # End of link 1
-        for t2 in theta2:
-        
-            x2 = x1+l2*math.cos(t2) # End of link 2
-            y2 = y1+l2*math.sin(t2) # End of link 2
+        y1 = l1*math.sin(t1) # End of link 1        
+        x2 = x1+l2*math.cos(t2) # End of link 2
+        y2 = y1+l2*math.sin(t2) # End of link 2
 
-            filename = str(ct) + '.png'
-            ct = ct+1
-            plt.figure()
-            plt.plot([x0,x1],[y0,y1])
-            plt.plot([x1,x2],[y1,y2])
-            plt.xlim([-1,2])
-            plt.ylim([-1,2])
-            dir = os.path.join(results_dir+filename)
-            imgsarr.append(dir)
-            print(dir)
-            plt.savefig(dir)
-            print('ct is' + str(ct))
-            #fig = px.plot([x0,x1],[y0,y1])
-            #fig = px.plot([x1,x2],[y1,y2])
-            #fig.show()
+        filename = str(ct) + '.png'
+        ct = ct+1
+        plt.figure()
+        plt.plot([x0,x1],[y0,y1])
+        plt.plot([x1,x2],[y1,y2])
+        plt.xlim([-1,2])
+        plt.ylim([-1,2])
+        dir = os.path.join(results_dir+filename)
+        imgsarr.append(dir)
+        print(dir)
+        plt.savefig(dir)
+        print('ct is' + str(ct))
+        #fig = px.plot([x0,x1],[y0,y1])
+        #fig = px.plot([x1,x2],[y1,y2])
+        #fig.show()
     
  
     # Create the frames
@@ -74,4 +72,4 @@ def twolink(args):
 
 
 
-#twolink({'armfirst': 0.2, 'armsecond': 0.2, 'divisions': 1, 'anglestart1':0, 'angleend1':15,'anglestart2':0,'angleend2':15})
+#twolink({'armfirst': 0.5, 'armsecond': 1.0, 'divisions': 4, 'anglestart1':0, 'angleend1':30,'anglestart2':0,'angleend2':60})
